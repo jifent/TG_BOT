@@ -62,7 +62,8 @@ def algo_str():
         keyboard = [
             [KeyboardButton(text='/Algorithms')],
             [KeyboardButton(text = '/Window'), KeyboardButton(text = '/INF_input')],
-            [KeyboardButton(text = '/Default_functions')], [KeyboardButton(text = '/File_input')], [KeyboardButton(text = '/File_output')]
+            [KeyboardButton(text = '/File_input')], [KeyboardButton(text = '/File_output')],
+            [KeyboardButton(text='/Default_functions')]
         ],
         resize_keyboard = True
     )
