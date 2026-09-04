@@ -41,7 +41,7 @@ def algo_line():
     keyboard = ReplyKeyboardMarkup(
         keyboard = [
             [KeyboardButton(text='/Algorithms')],
-            [KeyboardButton(text = '/Bin search')]
+            [KeyboardButton(text = '/Bin_search')]
             ],
             resize_keyboard = True)
     return keyboard
@@ -97,3 +97,16 @@ async def stroki(message: Message):
 @router.message(F.text.lower() == "Trees")
 async def tree(message: Message):
     await message.answer(text = ":(", parse_mode = "HTML", reply_markup = algo_tree())
+
+
+@router.message(F.text == "Bin_search")
+async def send_bins(message: Message):
+    try:
+        # Читаем файл в кодировке UTF-8
+        with open("bins.txt", "r", encoding="utf-8") as file:
+            content = file.read()
+
+        # Отправляем текст пользователю
+        await message.answer(content)
+    except FileNotFoundError:
+        await message.answer("Файл с текстом не найден.")
