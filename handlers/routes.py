@@ -121,10 +121,10 @@ async def send_bins(message: Message):
     try:
         # Читаем файл в кодировке UTF-8
         with open("bins.txt", "r", encoding="utf-8") as file:
-            content = file.read()
+            bt = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content, parse_mode="MarkdownV2")
+        await message.answer(bt, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -135,10 +135,10 @@ async def send_bins(message: Message):
     try:
         # Читаем файл в кодировке UTF-8
         with open("ms.txt", "r", encoding="utf-8") as file:
-            content = file.read()
+            mst = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content, parse_mode="MarkdownV2")
+        await message.answer(mst, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -149,10 +149,10 @@ async def send_bins(message: Message):
     try:
         # Читаем файл в кодировке UTF-8
         with open("qs.txt", "r", encoding="utf-8") as file:
-            content = file.read()
+            qst = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content, parse_mode="MarkdownV2")
+        await message.answer(qst, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -163,10 +163,10 @@ async def send_bins(message: Message):
     try:
         # Читаем файл в кодировке UTF-8
         with open("window.txt", "r", encoding="utf-8") as file:
-            content = file.read()
+            wt = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content, parse_mode="MarkdownV2")
+        await message.answer(wt, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -177,10 +177,10 @@ async def send_bins(message: Message):
     try:
         # Читаем файл в кодировке UTF-8
         with open("infi.txt", "r", encoding="utf-8") as file:
-            content = file.read()
+            iit = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content, parse_mode="MarkdownV2")
+        await message.answer(iit, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -191,10 +191,10 @@ async def send_bins(message: Message):
     try:
         # Читаем файл в кодировке UTF-8
         with open("deff.txt", "r", encoding="utf-8") as file:
-            content = file.read()
+            dft = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content, parse_mode="MarkdownV2")
+        await message.answer(dft, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -205,10 +205,10 @@ async def send_bins(message: Message):
     try:
         # Читаем файл в кодировке UTF-8
         with open("dfs.txt", "r", encoding="utf-8") as file:
-            content = file.read()
+            dfst = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content, parse_mode="MarkdownV2")
+        await message.answer(dfst, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -219,10 +219,10 @@ async def send_bins(message: Message):
     try:
         # Читаем файл в кодировке UTF-8
         with open("bfs.txt", "r", encoding="utf-8") as file:
-            content = file.read()
+            bfst = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content, parse_mode="MarkdownV2")
+        await message.answer(bfst, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -233,10 +233,10 @@ async def send_bins(message: Message):
     try:
         # Читаем файл в кодировке UTF-8
         with open("do.txt", "r", encoding="utf-8") as file:
-            content = file.read()
+            dot = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content, parse_mode="MarkdownV2")
+        await message.answer(dot, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -247,10 +247,10 @@ async def send_bins(message: Message):
     try:
         # Читаем файл в кодировке UTF-8
         with open("dej.txt", "r", encoding="utf-8") as file:
-            content = file.read()
+            dejt = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content, parse_mode="MarkdownV2")
+        await message.answer(dejt, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -261,10 +261,10 @@ async def send_bins(message: Message):
     try:
         # Читаем файл в кодировке UTF-8
         with open("cmath.txt", "r", encoding="utf-8") as file:
-            content = file.read()
+            mt = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content, parse_mode="MarkdownV2")
+        await message.answer(mt, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -275,10 +275,10 @@ async def send_bins(message: Message):
     try:
         # Читаем файл в кодировке UTF-8
         with open("struct+class.txt", "r", encoding="utf-8") as file:
-            content = file.read()
+            sact = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content, parse_mode="MarkdownV2")
+        await message.answer(sact, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -289,10 +289,10 @@ async def send_bins(message: Message):
     try:
         # Читаем файл в кодировке UTF-8
         with open("fileinput.txt", "r", encoding="utf-8") as file:
-            content = file.read()
+            fit = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content, parse_mode="MarkdownV2")
+        await message.answer(fit, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -303,10 +303,10 @@ async def send_bins(message: Message):
     try:
         # Читаем файл в кодировке UTF-8
         with open("fileoutput.txt", "r", encoding="utf-8") as file:
-            content = file.read()
+            fot = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content, parse_mode="MarkdownV2")
+        await message.answer(fot, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -317,10 +317,10 @@ async def send_bins(message: Message):
     try:
         # Читаем файл в кодировке UTF-8
         with open("try.txt", "r", encoding="utf-8") as file:
-            content = file.read()
+            tt = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content, parse_mode="MarkdownV2")
+        await message.answer(tt, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
