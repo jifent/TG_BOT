@@ -1,22 +1,22 @@
 Получение длины строки:
-```
+```c++
 std::string str = "Hello, world!";
 int length = str.length(); // 13
 ```
 
 
 Получение подстроки:
-```
+`
 std::string str = "Hello, world!";
 std::string subStr = str.substr(0, 5); // "Hello"
-```
+`
 
 
 Поиск подстроки:
-```
+<pre language="c++">
 std::string str = "Hello, world!";
 size_t pos = str.find("world"); // 7 (индекс начала подстроки)
-```
+</pre>
 
 
 Замена подстроки:
