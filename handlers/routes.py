@@ -189,7 +189,7 @@ async def send_bins(message: Message):
             content = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content, parse_mode="MarkdownV2")
+        await message.answer(content)
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
 
@@ -202,7 +202,7 @@ async def send_bins(message: Message):
             content = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content, parse_mode="MarkdownV2")
+        await message.answer(content)
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
 
