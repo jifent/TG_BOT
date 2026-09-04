@@ -21,7 +21,7 @@ def get_main_reply_algo():
     keyboard = ReplyKeyboardMarkup(
         keyboard = [
             [KeyboardButton(text = '/Sorting'), KeyboardButton(text = '/Linear')],
-            [KeyboardButton(text = '/Strings'), KeyboardButton(text = '/Trees')]
+            [KeyboardButton(text = '/Strings'), KeyboardButton(text = '/Trees'), KeyboardButton(text = '/Random_and_try')]
         ],
         resize_keyboard = True
     )
@@ -37,11 +37,22 @@ def algo_sort():
     )
     return keyboard
 
+def algo_random():
+    keyboard = ReplyKeyboardMarkup(
+        keyboard = [
+            [KeyboardButton(text='/Algorithms')],
+            [KeyboardButton(text = '/Random'), KeyboardButton(text = '/Try')]
+        ],
+        resize_keyboard = True
+    )
+    return keyboard
+
 def algo_line():
     keyboard = ReplyKeyboardMarkup(
         keyboard = [
             [KeyboardButton(text='/Algorithms')],
-            [KeyboardButton(text = '/Bin_search')]
+            [KeyboardButton(text = '/Bin_search')], [KeyboardButton(text = '/Math')],
+            [KeyboardButton(text ='/Struct_and_class')]
             ],
             resize_keyboard = True)
     return keyboard
@@ -51,7 +62,7 @@ def algo_str():
         keyboard = [
             [KeyboardButton(text='/Algorithms')],
             [KeyboardButton(text = '/Window'), KeyboardButton(text = '/INF_input')],
-            [KeyboardButton(text = '/Default_functions')]
+            [KeyboardButton(text = '/Default_functions')], [KeyboardButton(text = '/File_input')], [KeyboardButton(text = '/File_output')]
         ],
         resize_keyboard = True
     )
@@ -83,6 +94,11 @@ async def algo(message: Message):
 async def sort(message: Message):
     await message.answer(text = ":)", parse_mode = "HTML", reply_markup = algo_sort())
 
+@router.message(Command("Random_and_try"))
+@router.message(F.text.lower() == "Random_and_try")
+async def sort(message: Message):
+    await message.answer(text = ":)", parse_mode = "HTML", reply_markup = algo_random())
+
 @router.message(Command("Linear"))
 @router.message(F.text.lower() == "Linear")
 async def line(message: Message):
@@ -107,7 +123,7 @@ async def send_bins(message: Message):
             content = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content)
+        await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
 
@@ -120,7 +136,7 @@ async def send_bins(message: Message):
             content = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content)
+        await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
 
@@ -133,7 +149,7 @@ async def send_bins(message: Message):
             content = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content)
+        await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
 
@@ -146,7 +162,7 @@ async def send_bins(message: Message):
             content = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content)
+        await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
 
@@ -159,7 +175,7 @@ async def send_bins(message: Message):
             content = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content)
+        await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
 
@@ -185,7 +201,7 @@ async def send_bins(message: Message):
             content = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content)
+        await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
 
@@ -198,7 +214,7 @@ async def send_bins(message: Message):
             content = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content)
+        await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
 
@@ -211,7 +227,7 @@ async def send_bins(message: Message):
             content = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content)
+        await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
 
@@ -224,6 +240,71 @@ async def send_bins(message: Message):
             content = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content)
+        await message.answer(content, parse_mode="MarkdownV2")
+    except FileNotFoundError:
+        await message.answer("Файл с текстом не найден.")
+
+@router.message(Command("Math"))
+@router.message(F.text.lower() == "Math")
+async def send_bins(message: Message):
+    try:
+        # Читаем файл в кодировке UTF-8
+        with open("cmath.txt", "r", encoding="utf-8") as file:
+            content = file.read()
+
+        # Отправляем текст пользователю
+        await message.answer(content, parse_mode="MarkdownV2")
+    except FileNotFoundError:
+        await message.answer("Файл с текстом не найден.")
+
+@router.message(Command("Struct_and_class"))
+@router.message(F.text.lower() == "Struct_and_class")
+async def send_bins(message: Message):
+    try:
+        # Читаем файл в кодировке UTF-8
+        with open("struct+class.txt", "r", encoding="utf-8") as file:
+            content = file.read()
+
+        # Отправляем текст пользователю
+        await message.answer(content, parse_mode="MarkdownV2")
+    except FileNotFoundError:
+        await message.answer("Файл с текстом не найден.")
+
+@router.message(Command("File_input"))
+@router.message(F.text.lower() == "File_input")
+async def send_bins(message: Message):
+    try:
+        # Читаем файл в кодировке UTF-8
+        with open("fileinput.txt", "r", encoding="utf-8") as file:
+            content = file.read()
+
+        # Отправляем текст пользователю
+        await message.answer(content, parse_mode="MarkdownV2")
+    except FileNotFoundError:
+        await message.answer("Файл с текстом не найден.")
+
+@router.message(Command("File_output"))
+@router.message(F.text.lower() == "File_output")
+async def send_bins(message: Message):
+    try:
+        # Читаем файл в кодировке UTF-8
+        with open("fileoutput.txt", "r", encoding="utf-8") as file:
+            content = file.read()
+
+        # Отправляем текст пользователю
+        await message.answer(content, parse_mode="MarkdownV2")
+    except FileNotFoundError:
+        await message.answer("Файл с текстом не найден.")
+
+@router.message(Command("Try"))
+@router.message(F.text.lower() == "Try")
+async def send_bins(message: Message):
+    try:
+        # Читаем файл в кодировке UTF-8
+        with open("try.txt", "r", encoding="utf-8") as file:
+            content = file.read()
+
+        # Отправляем текст пользователю
+        await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
