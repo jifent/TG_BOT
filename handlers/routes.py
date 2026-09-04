@@ -124,7 +124,7 @@ async def send_bins(message: Message):
             bt = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(bt, parse_mode="MarkdownV2")
+        await message.answer(bt, parse_mode="HTML")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -138,7 +138,7 @@ async def send_bins2(message: Message):
             mst = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(mst, parse_mode="MarkdownV2")
+        await message.answer(mst, parse_mode="HTML")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -152,7 +152,7 @@ async def send_bins3(message: Message):
             qst = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(qst, parse_mode="MarkdownV2")
+        await message.answer(qst, parse_mode="HTML")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -166,7 +166,7 @@ async def send_bins4(message: Message):
             wt = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(wt, parse_mode="MarkdownV2")
+        await message.answer(wt, parse_mode="HTML")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -180,7 +180,7 @@ async def send_bins5(message: Message):
             iit = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(iit, parse_mode="MarkdownV2")
+        await message.answer(iit, parse_mode="HTML")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -194,7 +194,7 @@ async def send_bins6(message: Message):
             dft = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(dft, parse_mode="MarkdownV2")
+        await message.answer(dft, parse_mode="HTML")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -222,7 +222,7 @@ async def send_bins8(message: Message):
             bfst = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(bfst, parse_mode="MarkdownV2")
+        await message.answer(bfst, parse_mode="HTML")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -236,7 +236,7 @@ async def send_bins9(message: Message):
             dot = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(dot, parse_mode="MarkdownV2")
+        await message.answer(dot, parse_mode="HTML")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -250,7 +250,7 @@ async def send_bins10(message: Message):
             dejt = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(dejt, parse_mode="MarkdownV2")
+        await message.answer(dejt, parse_mode="HTML")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -264,7 +264,7 @@ async def send_bins11(message: Message):
             mt = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(mt, parse_mode="MarkdownV2")
+        await message.answer(mt, parse_mode="HTML")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -278,7 +278,7 @@ async def send_bins12(message: Message):
             sact = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(sact, parse_mode="MarkdownV2")
+        await message.answer(sact, parse_mode="HTML")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -292,7 +292,7 @@ async def send_bins13(message: Message):
             fit = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(fit, parse_mode="MarkdownV2")
+        await message.answer(fit, parse_mode="HTML")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
@@ -306,13 +306,12 @@ async def send_bins14(message: Message):
             fot = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(fot, parse_mode="MarkdownV2")
+        await message.answer(fot, parse_mode="HTML")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
 
 @router.message(Command("Try"))
-@router.message(F.text.lower() == "Try")
 async def send_bins15(message: Message):
     try:
         # Читаем файл в кодировке UTF-8
@@ -320,7 +319,7 @@ async def send_bins15(message: Message):
             tt = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(tt, parse_mode="MarkdownV2")
+        await message.answer(tt, parse_mode="HTML")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
     file.close()
