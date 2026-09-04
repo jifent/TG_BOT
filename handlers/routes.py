@@ -127,6 +127,7 @@ async def send_bins(message: Message):
         await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
+    file.close()
 
 @router.message(Command("Murge_sort"))
 @router.message(F.text.lower() == "Murge_sort")
@@ -140,6 +141,7 @@ async def send_bins(message: Message):
         await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
+    file.close()
 
 @router.message(Command("Quick_sort"))
 @router.message(F.text.lower() == "Quick_sort")
@@ -153,6 +155,7 @@ async def send_bins(message: Message):
         await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
+    file.close()
 
 @router.message(Command("Window"))
 @router.message(F.text.lower() == "Window")
@@ -166,6 +169,7 @@ async def send_bins(message: Message):
         await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
+    file.close()
 
 @router.message(Command("INF_input"))
 @router.message(F.text.lower() == "INF_input")
@@ -179,6 +183,7 @@ async def send_bins(message: Message):
         await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
+    file.close()
 
 @router.message(Command("Default_functions"))
 @router.message(F.text.lower() == "Default_functions")
@@ -189,9 +194,10 @@ async def send_bins(message: Message):
             content = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content)
+        await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
+    file.close()
 
 @router.message(Command("DFS"))
 @router.message(F.text.lower() == "DFS")
@@ -202,9 +208,10 @@ async def send_bins(message: Message):
             content = file.read()
 
         # Отправляем текст пользователю
-        await message.answer(content)
+        await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
+    file.close()
 
 @router.message(Command("BFS"))
 @router.message(F.text.lower() == "BFS")
@@ -218,6 +225,7 @@ async def send_bins(message: Message):
         await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
+    file.close()
 
 @router.message(Command("DO"))
 @router.message(F.text.lower() == "DO")
@@ -231,6 +239,7 @@ async def send_bins(message: Message):
         await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
+    file.close()
 
 @router.message(Command("Dejkstra"))
 @router.message(F.text.lower() == "Dejkstra")
@@ -244,6 +253,7 @@ async def send_bins(message: Message):
         await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
+    file.close()
 
 @router.message(Command("Math"))
 @router.message(F.text.lower() == "Math")
@@ -257,6 +267,7 @@ async def send_bins(message: Message):
         await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
+    file.close()
 
 @router.message(Command("Struct_and_class"))
 @router.message(F.text.lower() == "Struct_and_class")
@@ -270,6 +281,7 @@ async def send_bins(message: Message):
         await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
+    file.close()
 
 @router.message(Command("File_input"))
 @router.message(F.text.lower() == "File_input")
@@ -283,6 +295,7 @@ async def send_bins(message: Message):
         await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
+    file.close()
 
 @router.message(Command("File_output"))
 @router.message(F.text.lower() == "File_output")
@@ -296,6 +309,7 @@ async def send_bins(message: Message):
         await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
+    file.close()
 
 @router.message(Command("Try"))
 @router.message(F.text.lower() == "Try")
@@ -309,3 +323,4 @@ async def send_bins(message: Message):
         await message.answer(content, parse_mode="MarkdownV2")
     except FileNotFoundError:
         await message.answer("Файл с текстом не найден.")
+    file.close()
