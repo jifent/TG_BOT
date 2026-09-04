@@ -20,7 +20,7 @@ size_t pos = str.find("world"); // 7 (индекс начала подстрок
 
 
 Замена подстроки:
-```
+```cpp
 #include <string>
 std::string str = "Hello, world!";
 str.replace(7, 5, "everyone"); // "Hello, everyone!"
