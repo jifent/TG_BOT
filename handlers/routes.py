@@ -188,17 +188,29 @@ async def send_bins5(message: Message):
 @router.message(Command("Default_functions"))
 @router.message(F.text.lower() == "Default_functions")
 async def send_bins6(message: Message):
-    with open("deff.txt", "r", encoding="utf-8") as file:
-        dft = file.read()
-    await message.answer(dft, parse_mode="MarkdownV2")
+    try:
+        # Читаем файл в кодировке UTF-8
+        with open("deff.txt", "r", encoding="utf-8") as file:
+            dft = file.read()
+
+        # Отправляем текст пользователю
+        await message.answer(dft, parse_mode="MarkdownV2")
+    except FileNotFoundError:
+        await message.answer("Файл с текстом не найден.")
     file.close()
 
 @router.message(Command("DFS"))
 @router.message(F.text.lower() == "DFS")
 async def send_bins7(message: Message):
-    with open("dfs.txt", "r", encoding="utf-8") as file:
-        dfst = file.read()
-    await message.answer(dfst, parse_mode="MarkdownV2")
+    try:
+        # Читаем файл в кодировке UTF-8
+        with open("dfs.txt", "r", encoding="utf-8") as file:
+            dfst = file.read()
+
+        # Отправляем текст пользователю
+        await message.answer(dfst, parse_mode="HTML")
+    except FileNotFoundError:
+        await message.answer("Файл с текстом не найден.")
     file.close()
 
 @router.message(Command("BFS"))
