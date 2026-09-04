@@ -98,8 +98,8 @@ async def stroki(message: Message):
 async def tree(message: Message):
     await message.answer(text = ":(", parse_mode = "HTML", reply_markup = algo_tree())
 
-
-@router.message(F.text == "Bin_search")
+@router.message(Command("Bin_search"))
+@router.message(F.text.lower() == "Bin_search")
 async def send_bins(message: Message):
     try:
         # Читаем файл в кодировке UTF-8
