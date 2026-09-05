@@ -208,3 +208,6 @@ async def send_bins15(message: Message):
     with open("try.txt", "r", encoding="utf-8") as file15:
         tt = file15.read()
         await message.answer(tt)
+    with open("trycode.txt", "r", encoding="utf-8") as file15:
+        tct = file15.read()
+        await message.answer(tct, parse_mode="HTML")
