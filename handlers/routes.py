@@ -157,11 +157,15 @@ async def send_bins7(message: Message):
     with open("dfs.txt", "r", encoding="utf-8") as file7:
         dfst = file7.read()
         await message.answer(dfst)
+
 @router.message(Command("BFS"))
 async def send_bins8(message: Message):
     with open("bfs.txt", "r", encoding="utf-8") as file8:
         bfst = file8.read()
         await message.answer(bfst)
+    with open("bfscode.txt", "r", encoding="utf-8") as file8:
+        bfst = file8.read()
+        await message.answer(bfst, parse_mode="HTML")
 
 @router.message(Command("DO"))
 async def send_bins9(message: Message):
