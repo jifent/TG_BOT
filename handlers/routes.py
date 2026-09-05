@@ -4,18 +4,17 @@ from aiogram.types import (
     Message,
     ReplyKeyboardMarkup,
     KeyboardButton,
+    InlineKeyboardMarkup,
+    InlineKeyboardButton
 )
 
 router = Router()
 
 def get_main_reply_keyboard():
-    keyboard = ReplyKeyboardMarkup(
-        keyboard = [
-            [KeyboardButton(text = '/Algorithms')]
-        ],
-        resize_keyboard = True
-    )
-    return keyboard
+    buttons = [
+        [InlineKeyboardButton(text = "Алгоритмы", callback_data="Algorithms")]
+    ]
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 def get_main_reply_algo():
     keyboard = ReplyKeyboardMarkup(
@@ -80,13 +79,11 @@ def algo_tree():
     )
     return keyboard
 
-@router.message(Command("start"))
-@router.message(F.text.lower() == "старт")
+@router.message(F.text == "/start")
 async def start(message: Message):
     await message.answer(f"Привет, {message.from_user.first_name}. Мы команда вайбкодеров, которая хочет пройти на ICPC", parse_mode = "HTML", reply_markup = get_main_reply_keyboard())
 
-@router.message(Command("Algorithms"))
-@router.message(F.text.lower() == "Algorithms")
+@router.message(F.text == "Algorithms")
 async def algo(message: Message):
     await message.answer(text = ";)", parse_mode = "HTML", reply_markup = get_main_reply_algo())
 
@@ -116,210 +113,91 @@ async def tree(message: Message):
     await message.answer(text = ":(", parse_mode = "HTML", reply_markup = algo_tree())
 
 @router.message(Command("Bin_search"))
-@router.message(F.text.lower() == "Bin_search")
 async def send_bins(message: Message):
-    try:
-        # Читаем файл в кодировке UTF-8
-        with open("bins.txt", "r", encoding="utf-8") as file1:
-            bt = file1.read()
-
-        # Отправляем текст пользователю
-        await message.answer(bt, parse_mode="HTML")
-    except FileNotFoundError:
-        await message.answer("Файл с текстом не найден.")
-    file1.close()
+    with open("bins.txt", "r", encoding="utf-8") as file1:
+        bt = file1.read()
+        await message.answer(bt)
 
 @router.message(Command("Murge_sort"))
-@router.message(F.text.lower() == "Murge_sort")
 async def send_bins2(message: Message):
-    try:
-        # Читаем файл в кодировке UTF-8
-        with open("ms.txt", "r", encoding="utf-8") as file2:
-            mst = file2.read()
-
-        # Отправляем текст пользователю
-        await message.answer(mst, parse_mode="HTML")
-    except FileNotFoundError:
-        await message.answer("Файл с текстом не найден.")
-    file2.close()
+    with open("ms.txt", "r", encoding="utf-8") as file2:
+        mst = file2.read()
+        await message.answer(mst)
 
 @router.message(Command("Quick_sort"))
-@router.message(F.text.lower() == "Quick_sort")
 async def send_bins3(message: Message):
-    try:
-        # Читаем файл в кодировке UTF-8
-        with open("qs.txt", "r", encoding="utf-8") as file3:
-            qst = file3.read()
-
-        # Отправляем текст пользователю
-        await message.answer(qst, parse_mode="HTML")
-    except FileNotFoundError:
-        await message.answer("Файл с текстом не найден.")
-    file3.close()
+    with open("qs.txt", "r", encoding="utf-8") as file3:
+        qst = file3.read()
+        await message.answer(qst)
 
 @router.message(Command("Window"))
-@router.message(F.text.lower() == "Window")
 async def send_bins4(message: Message):
-    try:
-        # Читаем файл в кодировке UTF-8
-        with open("window.txt", "r", encoding="utf-8") as file4:
-            wt = file4.read()
-
-        # Отправляем текст пользователю
-        await message.answer(wt, parse_mode="HTML")
-    except FileNotFoundError:
-        await message.answer("Файл с текстом не найден.")
-    file4.close()
+    with open("window.txt", "r", encoding="utf-8") as file4:
+        wt = file4.read()
+        await message.answer(wt)
 
 @router.message(Command("INF_input"))
 @router.message(F.text.lower() == "INF_input")
 async def send_bins5(message: Message):
-    try:
-        # Читаем файл в кодировке UTF-8
-        with open("infi.txt", "r", encoding="utf-8") as file5:
-            iit = file5.read()
-
-        # Отправляем текст пользователю
-        await message.answer(iit, parse_mode="HTML")
-    except FileNotFoundError:
-        await message.answer("Файл с текстом не найден.")
-    file5.close()
+    with open("infi.txt", "r", encoding="utf-8") as file5:
+        iit = file5.read()
+        await message.answer(iit)
 
 @router.message(Command("Default_functions"))
-@router.message(F.text.lower() == "Default_functions")
 async def send_bins6(message: Message):
-    try:
-        # Читаем файл в кодировке UTF-8
-        with open("deff.txt", "r", encoding="utf-8") as file6:
-            dft = file6.read()
-
-        # Отправляем текст пользователю
-        await message.answer(dft, parse_mode="HTML")
-    except FileNotFoundError:
-        await message.answer("Файл с текстом не найден.")
-    file6.close()
+    with open("deff.txt", "r", encoding="utf-8") as file6:
+        dft = file6.read()
+        await message.answer(dft)
 
 @router.message(Command("DFS"))
-@router.message(F.text.lower() == "DFS")
 async def send_bins7(message: Message):
-    try:
-        # Читаем файл в кодировке UTF-8
-        with open("dfs.txt", "r", encoding="utf-8") as file7:
-            dfst = file7.read()
-
-        # Отправляем текст пользователю
-        await message.answer(dfst, parse_mode="HTML")
-    except FileNotFoundError:
-        await message.answer("Файл с текстом не найден.")
-    file7.close()
-
+    with open("dfs.txt", "r", encoding="utf-8") as file7:
+        dfst = file7.read()
+        await message.answer(dfst)
 @router.message(Command("BFS"))
-@router.message(F.text.lower() == "BFS")
 async def send_bins8(message: Message):
-    try:
-        # Читаем файл в кодировке UTF-8
-        with open("bfs.txt", "r", encoding="utf-8") as file8:
-            bfst = file8.read()
-
-        # Отправляем текст пользователю
-        await message.answer(bfst, parse_mode="HTML")
-    except FileNotFoundError:
-        await message.answer("Файл с текстом не найден.")
-    file8.close()
+    with open("bfs.txt", "r", encoding="utf-8") as file8:
+        bfst = file8.read()
+        await message.answer(bfst)
 
 @router.message(Command("DO"))
-@router.message(F.text.lower() == "DO")
 async def send_bins9(message: Message):
-    try:
-        # Читаем файл в кодировке UTF-8
-        with open("do.txt", "r", encoding="utf-8") as file9:
-            dot = file9.read()
-
-        # Отправляем текст пользователю
-        await message.answer(dot, parse_mode="HTML")
-    except FileNotFoundError:
-        await message.answer("Файл с текстом не найден.")
-    file9.close()
+    with open("do.txt", "r", encoding="utf-8") as file9:
+        dot = file9.read()
+        await message.answer(dot)
 
 @router.message(Command("Dejkstra"))
-@router.message(F.text.lower() == "Dejkstra")
 async def send_bins10(message: Message):
-    try:
-        # Читаем файл в кодировке UTF-8
-        with open("dej.txt", "r", encoding="utf-8") as file10:
-            dejt = file10.read()
-
-        # Отправляем текст пользователю
-        await message.answer(dejt, parse_mode="HTML")
-    except FileNotFoundError:
-        await message.answer("Файл с текстом не найден.")
-    file10.close()
+    with open("dej.txt", "r", encoding="utf-8") as file10:
+        dejt = file10.read()
+        await message.answer(dejt)
 
 @router.message(Command("Math"))
-@router.message(F.text.lower() == "Math")
 async def send_bins11(message: Message):
-    try:
-        # Читаем файл в кодировке UTF-8
-        with open("cmath.txt", "r", encoding="utf-8") as file11:
-            mt = file11.read()
-
-        # Отправляем текст пользователю
-        await message.answer(mt, parse_mode="HTML")
-    except FileNotFoundError:
-        await message.answer("Файл с текстом не найден.")
-    file11.close()
+    with open("cmath.txt", "r", encoding="utf-8") as file11:
+        mt = file11.read()
+        await message.answer(mt)
 
 @router.message(Command("Struct_and_class"))
-@router.message(F.text.lower() == "Struct_and_class")
 async def send_bins12(message: Message):
-    try:
-        # Читаем файл в кодировке UTF-8
-        with open("struct+class.txt", "r", encoding="utf-8") as file12:
-            sact = file12.read()
-
-        # Отправляем текст пользователю
-        await message.answer(sact, parse_mode="HTML")
-    except FileNotFoundError:
-        await message.answer("Файл с текстом не найден.")
-    file12.close()
+    with open("struct+class.txt", "r", encoding="utf-8") as file12:
+        sact = file12.read()
+        await message.answer(sact)
 
 @router.message(Command("File_input"))
-@router.message(F.text.lower() == "File_input")
 async def send_bins13(message: Message):
-    try:
-        # Читаем файл в кодировке UTF-8
-        with open("fileinput.txt", "r", encoding="utf-8") as file13:
-            fit = file13.read()
-
-        # Отправляем текст пользователю
-        await message.answer(fit, parse_mode="HTML")
-    except FileNotFoundError:
-        await message.answer("Файл с текстом не найден.")
-    file13.close()
+    with open("fileinput.txt", "r", encoding="utf-8") as file13:
+        fit = file13.read()
+        await message.answer(fit)
 
 @router.message(Command("File_output"))
-@router.message(F.text.lower() == "File_output")
 async def send_bins14(message: Message):
-    try:
-        # Читаем файл в кодировке UTF-8
-        with open("fileoutput.txt", "r", encoding="utf-8") as file14:
-            fot = file14.read()
-
-        # Отправляем текст пользователю
-        await message.answer(fot, parse_mode="HTML")
-    except FileNotFoundError:
-        await message.answer("Файл с текстом не найден.")
-    file14.close()
+    with open("fileoutput.txt", "r", encoding="utf-8") as file14:
+        fot = file14.read()
+        await message.answer(fot)
 
 @router.message(Command("Try"))
 async def send_bins15(message: Message):
-    try:
-        # Читаем файл в кодировке UTF-8
-        with open("try.txt", "r", encoding="utf-8") as file15:
-            tt = file15.read()
-
-        # Отправляем текст пользователю
-        await message.answer(tt, parse_mode="HTML")
-    except FileNotFoundError:
-        await message.answer("Файл с текстом не найден.")
-    file15.close()
+    with open("try.txt", "r", encoding="utf-8") as file15:
+        tt = file15.read()
+        await message.answer(tt)
