@@ -1,6 +1,6 @@
-```cpp
-#include <iostream>
-#include <stdexcept>
+<pre><code class="language-cpp">
+#include &lt;iostream&gt;
+#include &lt;stdexcept&gt;
 
 int divide(int num1, int num2) {
     if (num2 == 0) {
@@ -12,15 +12,15 @@ int divide(int num1, int num2) {
 int main() {
     try {
         int num1, num2;
-        std::cout << "Введите два числа: ";
-        std::cin >> num1 >> num2;
+        std::cout &lt;&lt; "Введите два числа: ";
+        std::cin &gt;&gt; num1 &gt;&gt; num2;
 
         int result = divide(num1, num2);
-        std::cout << "Результат деления: " << result << std::endl;
-    } catch (const std::runtime_error& e) {
-        std::cout << "Произошла ошибка: " << e.what() << std::endl;
+        std::cout &lt;&lt; "Результат деления: " &lt;&lt; result &lt;&lt; std::endl;
+    } catch (const std::runtime_error&amp; e) {
+        std::cout &lt;&lt; "Произошла ошибка: " &lt;&lt; e.what() &lt;&lt; std::endl;
     }
 
     return 0;
 }
-```
+</code></pre>

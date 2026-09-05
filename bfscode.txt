@@ -1,13 +1,13 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <unordered_set>
+<pre><code class="language-cpp">
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+#include &lt;unordered_set&gt;
 
 class Graph {
 private:
     int numVertices;
-    std::vector<std::unordered_set<int>> adjList;
+    std::vector&lt;std::unordered_set&lt;int&gt;&gt; adjList;
 
 public:
     Graph(int vertices) : numVertices(vertices), adjList(vertices) {}
@@ -19,8 +19,8 @@ public:
     }
 
     void BFS(int startNode) {
-        std::vector<bool> visited(numVertices, false);
-        std::queue<int> queue;
+        std::vector&lt;bool&gt; visited(numVertices, false);
+        std::queue&lt;int&gt; queue;
 
         queue.push(startNode);
         visited[startNode] = true;
@@ -28,7 +28,7 @@ public:
         while (!queue.empty()) {
             int currentNode = queue.front();
             queue.pop();
-            std::cout << currentNode << " ";
+            std::cout &lt;&lt; currentNode &lt;&lt; " ";
 
             for (int neighbor : adjList[currentNode]) {
                 if (!visited[neighbor]) {
@@ -52,9 +52,9 @@ int main() {
     graph.addEdge(2, 6);
 
     int startNode = 0;
-    std::cout << "BFS traversal starting from node " << startNode << ": ";
+    std::cout &lt;&lt; "BFS traversal starting from node " &lt;&lt; startNode &lt;&lt; ": ";
     graph.BFS(startNode);
 
     return 0;
 }
-```
+</code></pre>
