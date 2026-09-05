@@ -2,10 +2,9 @@ from aiogram import Router, F
 from aiogram.filters import Command
 from aiogram.types import (
     Message,
-    ReplyKeyboardMarkup,
-    KeyboardButton,
     InlineKeyboardMarkup,
-    InlineKeyboardButton, CallbackQuery
+    InlineKeyboardButton,
+    CallbackQuery
 )
 
 router = Router()
@@ -48,9 +47,9 @@ def algo_line():
 def algo_str():
     buttons = [
         [InlineKeyboardButton(text='Алгоритмы',callback_data="Algorithms")],
-        [InlineKeyboardButton(text = 'Окно',callback_data="Algorithms"), InlineKeyboardButton(text = 'INF input',callback_data="Algorithms")],
-        [InlineKeyboardButton(text = 'File input',callback_data="Algorithms")], [InlineKeyboardButton(text = 'File output',callback_data="Algorithms")],
-        [InlineKeyboardButton(text='Default функции',callback_data="Algorithms")]
+        [InlineKeyboardButton(text ='Окно',callback_data="Window"), InlineKeyboardButton(text = 'INF input',callback_data="INF_input")],
+        [InlineKeyboardButton(text ='File input',callback_data="File_input")], [InlineKeyboardButton(text = 'File output',callback_data="File_output")],
+        [InlineKeyboardButton(text='Default функции',callback_data="Default_functions")]
     ]
     return InlineKeyboardMarkup(inline_keyboard=buttons)
 
@@ -66,31 +65,31 @@ def algo_tree():
 async def start(message: Message):
     await message.answer(f"Привет, {message.from_user.first_name}. Мы команда вайбкодеров, которая хочет пройти на ICPC", parse_mode = "HTML", reply_markup = get_main_reply_keyboard())
 
-@router.callback_query(F.text == "Algorithms")
+@router.callback_query(F.data == "Algorithms")
 async def algo(callback: CallbackQuery):
     await callback.message.answer(text = ";)", parse_mode = "HTML", reply_markup = get_main_reply_algo())
 
-@router.callback_query(F.text == "Sorting")
+@router.callback_query(F.data == "Sorting")
 async def sort(callback: CallbackQuery):
     await callback.message.answer(text = ":)", parse_mode = "HTML", reply_markup = algo_sort())
 
-@router.callback_query(F.text == "Random_and_try")
+@router.callback_query(F.data == "Random_and_try")
 async def rat(callback: CallbackQuery):
     await callback.message.answer(text = ":)", parse_mode = "HTML", reply_markup = algo_random())
 
-@router.callback_query(F.text == "Linear")
+@router.callback_query(F.data == "Linear")
 async def line(callback: CallbackQuery):
     await callback.message.answer(text = ":)", parse_mode = "HTML", reply_markup = algo_line())
 
-@router.callback_query(F.text == "Strings")
+@router.callback_query(F.data == "Strings")
 async def stroki(callback: CallbackQuery):
     await callback.message.answer(text = ":)", parse_mode = "HTML", reply_markup = algo_str())
 
-@router.callback_query(F.text == "Trees")
+@router.callback_query(F.data == "Trees")
 async def tree(callback: CallbackQuery):
     await callback.message.answer(text = ":(", parse_mode = "HTML", reply_markup = algo_tree())
 
-@router.callback_query(Command("Bin_search"))
+@router.callback_query(F.data == "Bin_search")
 async def send_bins(callback:CallbackQuery):
     with open("bins.txt", "r", encoding="utf-8") as file1:
         bt = file1.read()
