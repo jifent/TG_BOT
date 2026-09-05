@@ -12,19 +12,16 @@ router = Router()
 
 def get_main_reply_keyboard():
     buttons = [
-        [InlineKeyboardButton(text = "Алгоритмы", callback_data="Algorithms")]
+        [InlineKeyboardButton(text = "Алгоритмы", callback_data="/Algorithms")]
     ]
     return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 def get_main_reply_algo():
-    keyboard = ReplyKeyboardMarkup(
-        keyboard = [
-            [KeyboardButton(text = '/Sorting'), KeyboardButton(text = '/Linear')],
-            [KeyboardButton(text = '/Strings'), KeyboardButton(text = '/Trees'), KeyboardButton(text = '/Random_and_try')]
-        ],
-        resize_keyboard = True
-    )
-    return keyboard
+    buttons = [
+            [InlineKeyboardButton(text = 'Сортировки', callback_data="/Sorting"), InlineKeyboardButton(text = 'Линейные', callback_data= "/Linear")],
+            [InlineKeyboardButton(text = 'Строки', callback_data="/Strings"), InlineKeyboardButton(text = 'Деревья', callback_data="/Trees"), InlineKeyboardButton(text = 'Random и try', callback_data="/Random_and_try")]
+    ]
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 def algo_sort():
     keyboard = ReplyKeyboardMarkup(
