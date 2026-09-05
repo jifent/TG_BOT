@@ -1,4 +1,4 @@
-from aiogram import Router, F
+from aiogram import Router, F, html
 from aiogram.filters import Command
 from aiogram.types import (
     Message,
@@ -163,8 +163,8 @@ async def send_bins8(message: Message):
     with open("bfs.txt", "r", encoding="utf-8") as file8:
         bfst = file8.read()
         await message.answer(bfst)
-    with open("bfscode.txt", "r", encoding="utf-8") as file8:
-        bfst = file8.read()
+    with open("bfscode.cpp", "r", encoding="utf-8") as file8:
+        bfst = html.code(file8.read(), language = "cpp")
         await message.answer(bfst, parse_mode="HTML")
 
 @router.message(Command("DO"))
