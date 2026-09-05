@@ -9,26 +9,3 @@
 Закрыть файл после окончания чтения.
 
 Вот пример кода для чтения чисел из файла и вывода их на экран (поэлементно, разделитель – пробел):
-
-```cpp
-#include <iostream>
-#include <fstream>
-
-int main() {
-    std::ifstream inputFile("example.txt"); // Открытие файла для чтения
-
-    if (!inputFile.is_open()) {
-        std::cerr << "Не удалось открыть файл." << std::endl;
-        return 1;
-    }
-
-    int number;
-    while (inputFile >> number) { // Чтение чисел из файла
-        std::cout << number << " "; // Вывод числа на экран
-    }
-
-    inputFile.close(); // Закрытие файла
-
-    return 0;
-}
-```

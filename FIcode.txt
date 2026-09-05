@@ -1,0 +1,22 @@
+<pre><code class="language-cpp">})
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+int main() {
+    std::ifstream inputFile("example.txt"); // Открытие файла для чтения
+
+    if (!inputFile.is_open()) {
+        std::cerr &lt;&lt; "Не удалось открыть файл." &lt;&lt; std::endl;
+        return 1;
+    }
+
+    int number;
+    while (inputFile &gt;&gt; number) { // Чтение чисел из файла
+        std::cout &lt;&lt; number &lt;&lt; " "; // Вывод числа на экран
+    }
+
+    inputFile.close(); // Закрытие файла
+
+    return 0;
+}
+</code></pre>

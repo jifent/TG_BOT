@@ -120,6 +120,15 @@ async def send_bins(message: Message):
     with open("bins.txt", "r", encoding="utf-8") as file1:
         bt = file1.read()
         await message.answer(bt)
+    with open("binscode.txt", "r", encoding="utf-8") as file1:
+        bt = file1.read()
+        await message.answer(bt,parse_mode="HTML")
+    with open("bins2.txt", "r", encoding="utf-8") as file1:
+        bt = file1.read()
+        await message.answer(bt)
+    with open("bins2code.txt", "r", encoding="utf-8") as file1:
+        bt = file1.read()
+        await message.answer(bt,parse_mode="HTML")
 
 @router.message(Command("Murge_sort"))
 async def send_bins2(message: Message):
@@ -150,11 +159,23 @@ async def send_bins5(message: Message):
 async def send_bins6(message: Message):
     with open("deff.txt", "r", encoding="utf-8") as file6:
         dft = file6.read()
-        await message.answer(dft)
+        await message.answer(dft,parse_mode="HTML")
 
 @router.message(Command("DFS"))
 async def send_bins7(message: Message):
     with open("dfs.txt", "r", encoding="utf-8") as file7:
+        dfst = file7.read()
+        await message.answer(dfst)
+    with open("dfscode.txt", "r", encoding="utf-8") as file7:
+        dfst = file7.read()
+        await message.answer(dfst,parse_mode="HTML")
+    with open("dfs2.txt", "r", encoding="utf-8") as file7:
+        dfst = file7.read()
+        await message.answer(dfst)
+    with open("dfs2code.txt", "r", encoding="utf-8") as file7:
+        dfst = file7.read()
+        await message.answer(dfst,parse_mode="HTML")
+    with open("dfs3.txt", "r", encoding="utf-8") as file7:
         dfst = file7.read()
         await message.answer(dfst)
 
@@ -184,10 +205,25 @@ async def send_bins11(message: Message):
     with open("cmath.txt", "r", encoding="utf-8") as file11:
         mt = file11.read()
         await message.answer(mt)
+    with open("cmathcode.txt", "r", encoding="utf-8") as file11:
+        mt = file11.read()
+        await message.answer(mt,parse_mode="HTML")
 
 @router.message(Command("Struct_and_class"))
 async def send_bins12(message: Message):
     with open("struct+class.txt", "r", encoding="utf-8") as file12:
+        sact = file12.read()
+        await message.answer(sact)
+    with open("sccode.txt", "r", encoding="utf-8") as file12:
+        sact = file12.read()
+        await message.answer(sact,parse_mode="HTML")
+    with open("sc2", "r", encoding="utf-8") as file12:
+        sact = file12.read()
+        await message.answer(sact)
+    with open("sc2code", "r", encoding="utf-8") as file12:
+        sact = file12.read()
+        await message.answer(sact,parse_mode="HTML")
+    with open("sc3", "r", encoding="utf-8") as file12:
         sact = file12.read()
         await message.answer(sact)
 
@@ -196,12 +232,18 @@ async def send_bins13(message: Message):
     with open("fileinput.txt", "r", encoding="utf-8") as file13:
         fit = file13.read()
         await message.answer(fit)
+    with open("FIcode.txt", "r", encoding="utf-8") as file13:
+        fit = file13.read()
+        await message.answer(fit,parse_mode="HTML")
 
 @router.message(Command("File_output"))
 async def send_bins14(message: Message):
     with open("fileoutput.txt", "r", encoding="utf-8") as file14:
         fot = file14.read()
         await message.answer(fot)
+    with open("FOcode.txt", "r", encoding="utf-8") as file14:
+        fot = file14.read()
+        await message.answer(fot,parse_mode="HTML")
 
 @router.message(Command("Try"))
 async def send_bins15(message: Message):

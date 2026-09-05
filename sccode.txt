@@ -1,0 +1,18 @@
+<pre><code class="language-cpp">})
+struct Person {
+    std::string name;
+    int age;
+    char gender;
+};
+
+int main() {
+    Person person1;
+    person1.name = "John";
+    person1.age = 30;
+    person1.gender = 'M';
+
+    std::cout &lt;&lt; "Name: " &lt;&lt; person1.name &lt;&lt; ", Age: " &lt;&lt; person1.age &lt;&lt; ", Gender: " &lt;&lt; person1.gender &lt;&lt; std::endl;
+
+    return 0;
+}
+</code></pre>

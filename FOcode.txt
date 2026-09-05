@@ -1,0 +1,25 @@
+<pre><code class="language-cpp">})
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::ofstream outputFile;
+    outputFile.open("example.txt", std::ios::out); // Открытие файла для записи
+
+    if (!outputFile.is_open()) {
+        std::cerr &lt;&lt; "Не удалось открыть файл." &lt;&lt; std::endl;
+        return 1;
+    }
+
+    // Запись данных в файл
+    outputFile &lt;&lt; "Пример записи в файл." &lt;&lt; std::endl;
+    outputFile &lt;&lt; "Число: " &lt;&lt; 42 &lt;&lt; std::endl;
+    outputFile &lt;&lt; "Плавающее число: " &lt;&lt; 3.14 &lt;&lt; std::endl;
+    outputFile &lt;&lt; "Строка: " &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
+
+    outputFile.close(); // Закрытие файла
+
+    return 0;
+}
+</code></pre>

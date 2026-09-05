@@ -1,0 +1,32 @@
+<pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+int binarySearch(int arr[], int left, int right, int key) {
+    while (left &lt;= right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] == key) {
+            return mid; // Искомый элемент найден, возвращаем его индекс
+        } else if (arr[mid] &lt; key) {
+            left = mid + 1; // Искомый элемент находится справа от mid
+        } else {
+            right = mid - 1; // Искомый элемент находится слева от mid
+        }
+    }
+    return -1; // Искомый элемент не найден, возвращаем -1
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 5, 6, 7, 9};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int key = 6;
+
+    int result = binarySearch(arr, 0, size - 1, key);
+    if (result != -1) {
+        std::cout &lt;&lt; "Искомый элемент " &lt;&lt; key &lt;&lt; " найден по индексу " &lt;&lt; result &lt;&lt; std::endl;
+    } else {
+        std::cout &lt;&lt; "Искомый элемент " &lt;&lt; key &lt;&lt; " не найден." &lt;&lt; std::endl;
+    }
+
+    return 0;
+}
+</code></pre>

@@ -1,0 +1,34 @@
+<pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+int binarySearchRecursive(int arr[], int left, int right, int key) {
+    if (left &lt;= right) {
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] == key) {
+            return mid; // Искомый элемент найден, возвращаем его индекс
+        } else if (arr[mid] &lt; key) {
+            return binarySearchRecursive(arr, mid + 1, right, key); // Искомый элемент находится справа от mid
+        } else {
+            return binarySearchRecursive(arr, left, mid - 1, key); // Искомый элемент находится слева от mid
+        }
+    }
+
+    return -1; // Искомый элемент не найден, возвращаем -1
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 5, 6, 7, 9};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int key = 6;
+
+    int result = binarySearchRecursive(arr, 0, size - 1, key);
+    if (result != -1) {
+        std::cout &lt;&lt; "Искомый элемент " &lt;&lt; key &lt;&lt; " найден по индексу " &lt;&lt; result &lt;&lt; std::endl;
+    } else {
+        std::cout &lt;&lt; "Искомый элемент " &lt;&lt; key &lt;&lt; " не найден." &lt;&lt; std::endl;
+    }
+
+    return 0;
+}
+</code></pre>

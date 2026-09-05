@@ -33,20 +33,3 @@ M_E: Значение числа e (основание натурального 
 
 Пример использования:
 
-```cpp
-#include <iostream>
-#include <cmath>
-
-int main() {
-    double x = 2.5;
-    double y = -3.0;
-
-    double sin_x = sin(x);
-    double exp_y = exp(y);
-
-    std::cout << "sin(2.5) = " << sin_x << std::endl;
-    std::cout << "exp(-3.0) = " << exp_y << std::endl;
-
-    return 0;
-}
-```

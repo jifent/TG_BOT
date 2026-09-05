@@ -1,0 +1,21 @@
+<pre><code class="language-cpp">})
+class Rectangle {
+public:
+    int length;
+    int width;
+
+    int calculateArea() {
+        return length * width;
+    }
+};
+
+int main() {
+    Rectangle rect;
+    rect.length = 5;
+    rect.width = 3;
+
+    std::cout &lt;&lt; "Area: " &lt;&lt; rect.calculateArea() &lt;&lt; std::endl;
+
+    return 0;
+}
+</code></pre>

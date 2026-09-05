@@ -1,0 +1,60 @@
+<pre><code class="language-cpp">})
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;unordered_set&gt;
+#include &lt;stack&gt;
+
+class Graph {
+private:
+    int numVertices;
+    std::vector&lt;std::unordered_set&lt;int&gt;&gt; adjList;
+
+public:
+    Graph(int vertices) : numVertices(vertices), adjList(vertices) {}
+
+    void addEdge(int source, int destination) {
+        adjList[source].insert(destination);
+        // Если граф неориентированный, добавьте следующую строку:
+        // adjList[destination].insert(source);
+    }
+
+    void DFS(int startNode) {
+        std::vector&lt;bool&gt; visited(numVertices, false);
+        std::stack&lt;int&gt; stack;
+
+        stack.push(startNode);
+        visited[startNode] = true;
+
+        while (!stack.empty()) {
+            int currentNode = stack.top();
+            stack.pop();
+            std::cout &lt;&lt; currentNode &lt;&lt; " ";
+
+            for (int neighbor : adjList[currentNode]) {
+                if (!visited[neighbor]) {
+                    stack.push(neighbor);
+                    visited[neighbor] = true;
+                }
+            }
+        }
+    }
+};
+
+int main() {
+    int numVertices = 7;
+    Graph graph(numVertices);
+
+    graph.addEdge(0, 1);
+    graph.addEdge(0, 2);
+    graph.addEdge(1, 3);
+    graph.addEdge(1, 4);
+    graph.addEdge(2, 5);
+    graph.addEdge(2, 6);
+
+    int startNode = 0;
+    std::cout &lt;&lt; "DFS traversal starting from node " &lt;&lt; startNode &lt;&lt; ": ";
+    graph.DFS(startNode);
+
+    return 0;
+}
+</code></pre>

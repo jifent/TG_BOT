@@ -1,0 +1,17 @@
+<pre><code class="language-cpp">})
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+
+int main() {
+    double x = 2.5;
+    double y = -3.0;
+
+    double sin_x = sin(x);
+    double exp_y = exp(y);
+
+    std::cout &lt;&lt; "sin(2.5) = " &lt;&lt; sin_x &lt;&lt; std::endl;
+    std::cout &lt;&lt; "exp(-3.0) = " &lt;&lt; exp_y &lt;&lt; std::endl;
+
+    return 0;
+}
+</code></pre>
