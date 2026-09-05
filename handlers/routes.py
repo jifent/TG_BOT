@@ -67,27 +67,27 @@ async def start(message: Message):
 
 @router.callback_query(F.data == "Algorithms")
 async def algo(callback: CallbackQuery):
-    await callback.message.answer(text = ";)", parse_mode = "HTML", reply_markup = get_main_reply_algo())
+    await callback.message.answer(reply_markup = get_main_reply_algo())
 
 @router.callback_query(F.data == "Sorting")
 async def sort(callback: CallbackQuery):
-    await callback.message.answer(text = ":)", parse_mode = "HTML", reply_markup = algo_sort())
+    await callback.message.answer(reply_markup = algo_sort())
 
 @router.callback_query(F.data == "Random_and_try")
 async def rat(callback: CallbackQuery):
-    await callback.message.answer(text = ":)", parse_mode = "HTML", reply_markup = algo_random())
+    await callback.message.answer(reply_markup = algo_random())
 
 @router.callback_query(F.data == "Linear")
 async def line(callback: CallbackQuery):
-    await callback.message.answer(text = ":)", parse_mode = "HTML", reply_markup = algo_line())
+    await callback.message.answer(reply_markup = algo_line())
 
 @router.callback_query(F.data == "Strings")
 async def stroki(callback: CallbackQuery):
-    await callback.message.answer(text = ":)", parse_mode = "HTML", reply_markup = algo_str())
+    await callback.message.answer(reply_markup = algo_str())
 
 @router.callback_query(F.data == "Trees")
 async def tree(callback: CallbackQuery):
-    await callback.message.answer(text = ":(", parse_mode = "HTML", reply_markup = algo_tree())
+    await callback.message.answer(reply_markup = algo_tree())
 
 @router.callback_query(F.data == "Bin_search")
 async def send_bins(callback:CallbackQuery):
@@ -120,11 +120,11 @@ async def send_bins5(message: Message):
         iit = file5.read()
         await message.answer(iit)
 
-@router.message(Command("Default_functions"))
-async def send_bins6(message: Message):
+@router.callback_query(F.data == "Default_functions")
+async def send_bins6(callback: CallbackQuery):
     with open("deff.txt", "r", encoding="utf-8") as file6:
         dft = file6.read()
-        await message.answer(dft)
+        await callback.message.answer(dft)
 
 @router.message(Command("DFS"))
 async def send_bins7(message: Message):
