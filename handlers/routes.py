@@ -5,115 +5,96 @@ from aiogram.types import (
     ReplyKeyboardMarkup,
     KeyboardButton,
     InlineKeyboardMarkup,
-    InlineKeyboardButton
+    InlineKeyboardButton, CallbackQuery
 )
 
 router = Router()
 
 def get_main_reply_keyboard():
     buttons = [
-        [InlineKeyboardButton(text = "Алгоритмы", callback_data="/Algorithms")]
+        [InlineKeyboardButton(text = "Алгоритмы", callback_data="Algorithms")]
     ]
     return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 def get_main_reply_algo():
     buttons = [
-            [InlineKeyboardButton(text = 'Сортировки', callback_data="/Sorting"), InlineKeyboardButton(text = 'Линейные', callback_data= "/Linear")],
-            [InlineKeyboardButton(text = 'Строки', callback_data="/Strings"), InlineKeyboardButton(text = 'Деревья', callback_data="/Trees"), InlineKeyboardButton(text = 'Random и try', callback_data="/Random_and_try")]
+        [InlineKeyboardButton(text = 'Сортировки', callback_data="Sorting"), InlineKeyboardButton(text = 'Линейные', callback_data= "Linear")],
+        [InlineKeyboardButton(text = 'Строки', callback_data="Strings"), InlineKeyboardButton(text = 'Деревья', callback_data="Trees"), InlineKeyboardButton(text = 'Random и try', callback_data="Random_and_try")]
     ]
     return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 def algo_sort():
-    keyboard = ReplyKeyboardMarkup(
-        keyboard = [
-            [KeyboardButton(text='/Algorithms')],
-            [KeyboardButton(text = '/Murge_sort'), KeyboardButton(text = '/Quick_sort')]
-        ],
-        resize_keyboard = True
-    )
-    return keyboard
+    buttons = [
+        [InlineKeyboardButton(text='Алгоритмы', callback_data="Algorithms")],
+        [InlineKeyboardButton(text = 'Murge_sort', callback_data="Murge_sort"), InlineKeyboardButton(text = 'Quick_sort',callback_data="Quick_sort")]
+    ]
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 def algo_random():
-    keyboard = ReplyKeyboardMarkup(
-        keyboard = [
-            [KeyboardButton(text='/Algorithms')],
-            [KeyboardButton(text = '/Random'), KeyboardButton(text = '/Try')]
-        ],
-        resize_keyboard = True
-    )
-    return keyboard
+    buttons = [
+        [InlineKeyboardButton(text = 'Алгоритмы', callback_data="Algorithms")],
+        [InlineKeyboardButton(text = 'Random', callback_data="Random"), InlineKeyboardButton(text = '/Try', callback_data="Try")]
+    ]
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 def algo_line():
-    keyboard = ReplyKeyboardMarkup(
-        keyboard = [
-            [KeyboardButton(text='/Algorithms')],
-            [KeyboardButton(text = '/Bin_search')], [KeyboardButton(text = '/Math')],
-            [KeyboardButton(text ='/Struct_and_class')]
-            ],
-            resize_keyboard = True)
-    return keyboard
+    buttons = [
+        [InlineKeyboardButton(text='Алгоритмы',callback_data="Algorithms")],
+        [InlineKeyboardButton(text = 'Бин поиск',callback_data="Bin_search")], [InlineKeyboardButton(text = 'Math',callback_data="Math")],
+        [InlineKeyboardButton(text ='Struct и class',callback_data="Struct_and_class")]
+    ]
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 def algo_str():
-    keyboard = ReplyKeyboardMarkup(
-        keyboard = [
-            [KeyboardButton(text='/Algorithms')],
-            [KeyboardButton(text = '/Window'), KeyboardButton(text = '/INF_input')],
-            [KeyboardButton(text = '/File_input')], [KeyboardButton(text = '/File_output')],
-            [KeyboardButton(text='/Default_functions')]
-        ],
-        resize_keyboard = True
-    )
-    return keyboard
+    buttons = [
+        [InlineKeyboardButton(text='Алгоритмы',callback_data="Algorithms")],
+        [InlineKeyboardButton(text = 'Окно',callback_data="Algorithms"), InlineKeyboardButton(text = 'INF input',callback_data="Algorithms")],
+        [InlineKeyboardButton(text = 'File input',callback_data="Algorithms")], [InlineKeyboardButton(text = 'File output',callback_data="Algorithms")],
+        [InlineKeyboardButton(text='Default функции',callback_data="Algorithms")]
+    ]
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 def algo_tree():
-    keyboard = ReplyKeyboardMarkup(
-        keyboard = [
-            [KeyboardButton(text='/Algorithms')],
-            [KeyboardButton(text = '/DFS'), KeyboardButton(text = '/BFS')],
-            [KeyboardButton(text = '/Dejkstra'), KeyboardButton(text = '/DO')]
-        ],
-        resize_keyboard = True
-    )
-    return keyboard
+    buttons = [
+        [InlineKeyboardButton(text='Алгоритмы',callback_data="Algorithms")],
+        [InlineKeyboardButton(text = 'DFS',callback_data="DFS"), InlineKeyboardButton(text = 'BFS',callback_data="BFS")],
+        [InlineKeyboardButton(text = 'Дейкстра',callback_data="Dejkstra"), InlineKeyboardButton(text = 'ДО',callback_data="DO")]
+    ]
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 @router.message(F.text == "/start")
 async def start(message: Message):
     await message.answer(f"Привет, {message.from_user.first_name}. Мы команда вайбкодеров, которая хочет пройти на ICPC", parse_mode = "HTML", reply_markup = get_main_reply_keyboard())
 
-@router.message(F.text == "Algorithms")
-async def algo(message: Message):
-    await message.answer(text = ";)", parse_mode = "HTML", reply_markup = get_main_reply_algo())
+@router.callback_query(F.text == "Algorithms")
+async def algo(callback: CallbackQuery):
+    await callback.message.answer(text = ";)", parse_mode = "HTML", reply_markup = get_main_reply_algo())
 
-@router.message(Command("Sorting"))
-@router.message(F.text.lower() == "Sorting")
-async def sort(message: Message):
-    await message.answer(text = ":)", parse_mode = "HTML", reply_markup = algo_sort())
+@router.callback_query(F.text == "Sorting")
+async def sort(callback: CallbackQuery):
+    await callback.message.answer(text = ":)", parse_mode = "HTML", reply_markup = algo_sort())
 
-@router.message(Command("Random_and_try"))
-@router.message(F.text.lower() == "Random_and_try")
-async def sort(message: Message):
-    await message.answer(text = ":)", parse_mode = "HTML", reply_markup = algo_random())
+@router.callback_query(F.text == "Random_and_try")
+async def rat(callback: CallbackQuery):
+    await callback.message.answer(text = ":)", parse_mode = "HTML", reply_markup = algo_random())
 
-@router.message(Command("Linear"))
-@router.message(F.text.lower() == "Linear")
-async def line(message: Message):
-    await message.answer(text = ":)", parse_mode = "HTML", reply_markup = algo_line())
+@router.callback_query(F.text == "Linear")
+async def line(callback: CallbackQuery):
+    await callback.message.answer(text = ":)", parse_mode = "HTML", reply_markup = algo_line())
 
-@router.message(Command("Strings"))
-@router.message(F.text.lower() == "Strings")
-async def stroki(message: Message):
-    await message.answer(text = ":)", parse_mode = "HTML", reply_markup = algo_str())
+@router.callback_query(F.text == "Strings")
+async def stroki(callback: CallbackQuery):
+    await callback.message.answer(text = ":)", parse_mode = "HTML", reply_markup = algo_str())
 
-@router.message(Command("Trees"))
-@router.message(F.text.lower() == "Trees")
-async def tree(message: Message):
-    await message.answer(text = ":(", parse_mode = "HTML", reply_markup = algo_tree())
+@router.callback_query(F.text == "Trees")
+async def tree(callback: CallbackQuery):
+    await callback.message.answer(text = ":(", parse_mode = "HTML", reply_markup = algo_tree())
 
-@router.message(Command("Bin_search"))
-async def send_bins(message: Message):
+@router.callback_query(Command("Bin_search"))
+async def send_bins(callback:CallbackQuery):
     with open("bins.txt", "r", encoding="utf-8") as file1:
         bt = file1.read()
-        await message.answer(bt)
+        await callback.message.answer(bt)
 
 @router.message(Command("Murge_sort"))
 async def send_bins2(message: Message):
