@@ -164,8 +164,8 @@ async def send_bins8(message: Message):
         bfst = file8.read()
         await message.answer(bfst)
     with open("bfscode.cpp", "r", encoding="utf-8") as file8:
-        bfst = html.code(file8.read(), language = "cpp")
-        await message.answer(bfst, parse_mode="HTML")
+        bfs = html.code(file8.read(), language = "cpp")
+        await message.answer(bfs, parse_mode="HTML")
 
 @router.message(Command("DO"))
 async def send_bins9(message: Message):
