@@ -1,0 +1,40 @@
+<pre><code class="language-cpp">})
+#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;vector&amp;gt;
+
+void printVec(const std::vector&amp;lt;int&amp;gt;&amp;amp; a) {
+    for (int x : a) std::cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; " ";
+    std::cout &amp;lt;&amp;lt; "\n";
+}
+
+void merge(std::vector&amp;lt;int&amp;gt;&amp;amp; a, int lo, int mid, int hi) {
+    std::vector&amp;lt;int&amp;gt; tmp;
+    tmp.reserve(hi - lo + 1);
+    int i = lo, j = mid + 1;
+    while (i &amp;lt;= mid &amp;amp;&amp;amp; j &amp;lt;= hi) {
+        if (a[i] &amp;lt;= a[j]) tmp.push_back(a[i++]);
+        else tmp.push_back(a[j++]);
+    }
+    while (i &amp;lt;= mid) tmp.push_back(a[i++]);
+    while (j &amp;lt;= hi) tmp.push_back(a[j++]);
+    for (size_t k = 0; k &amp;lt; tmp.size(); ++k) a[lo + k] = tmp[k];
+}
+
+void mergeSort(std::vector&amp;lt;int&amp;gt;&amp;amp; a, int lo, int hi) {
+    if (lo &amp;gt;= hi) return;
+    int mid = lo + (hi - lo) / 2;
+    mergeSort(a, lo, mid);      // sort the left half
+    mergeSort(a, mid + 1, hi);  // sort the right half
+    merge(a, lo, mid, hi);      // merge the sorted halves
+}
+
+int main() {
+    std::vector&amp;lt;int&amp;gt; data = {38, 27, 43, 3, 9, 82, 10};
+    std::cout &amp;lt;&amp;lt; "Before: ";
+    printVec(data);
+    mergeSort(data, 0, static_cast&amp;lt;int&amp;gt;(data.size()) - 1);
+    std::cout &amp;lt;&amp;lt; "After:  ";
+    printVec(data);
+    return 0;
+}
+</code></pre>

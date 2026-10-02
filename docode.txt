@@ -1,0 +1,42 @@
+<pre><code class="language-cpp">})
+#include &lt;iostream&gt;
+
+struct Node {
+    int value;
+    Node* left = nullptr;
+    Node* right = nullptr;
+    explicit Node(int v) : value(v) {}
+};
+
+Node* insert(Node* root, int value) {
+    if (root == nullptr) return new Node(value);
+    if (value &lt; root-&gt;value) root-&gt;left = insert(root-&gt;left, value);
+    else root-&gt;right = insert(root-&gt;right, value);
+    return root;
+}
+
+// In-order traversal: left subtree, node, right subtree
+void inorder(const Node* node) {
+    if (node == nullptr) return;
+    inorder(node-&gt;left);
+    std::cout &lt;&lt; node-&gt;value &lt;&lt; " ";
+    inorder(node-&gt;right);
+}
+
+int countNodes(const Node* node) {
+    if (node == nullptr) return 0;
+    return 1 + countNodes(node-&gt;left) + countNodes(node-&gt;right);
+}
+
+int main() {
+    Node* root = nullptr;
+    for (int value : {8, 3, 10, 1, 6, 14, 4}) {
+        root = insert(root, value);
+    }
+    std::cout &lt;&lt; "In-order: ";
+    inorder(root);
+    std::cout &lt;&lt; "\n";
+    std::cout &lt;&lt; "Node count: " &lt;&lt; countNodes(root) &lt;&lt; "\n";
+    return 0;
+}
+</code></pre>

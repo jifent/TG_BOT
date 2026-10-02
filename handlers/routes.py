@@ -132,15 +132,21 @@ async def send_bins(message: Message):
 
 @router.message(Command("Murge_sort"))
 async def send_bins2(message: Message):
-    with open("ms.txt", "r", encoding="utf-8") as file2:
+    with open("merge.txt", "r", encoding="utf-8") as file2:
+        ms = file2.read()
+        await message.answer(ms)
+    with open("mergecode.txt", "r", encoding="utf-8") as file2:
         mst = file2.read()
-        await message.answer(mst)
+        await message.answer(mst, parse_mode="HTML")
 
 @router.message(Command("Quick_sort"))
 async def send_bins3(message: Message):
-    with open("qs.txt", "r", encoding="utf-8") as file3:
+    with open("quick.txt", "r", encoding="utf-8") as file3:
+        qs = file3.read()
+        await message.answer(qs)
+    with open("quickcode.txt", "r", encoding="utf-8") as file3:
         qst = file3.read()
-        await message.answer(qst)
+        await message.answer(qst, parse_mode="HTML")
 
 @router.message(Command("Window"))
 async def send_bins4(message: Message):
@@ -191,14 +197,20 @@ async def send_bins8(message: Message):
 @router.message(Command("DO"))
 async def send_bins9(message: Message):
     with open("do.txt", "r", encoding="utf-8") as file9:
+        do = file9.read()
+        await message.answer(do)
+    with open("docode.txt", "r", encoding="utf-8") as file9:
         dot = file9.read()
-        await message.answer(dot)
+        await message.answer(dot, parse_mode="HTML")
 
 @router.message(Command("Dejkstra"))
 async def send_bins10(message: Message):
     with open("dej.txt", "r", encoding="utf-8") as file10:
+        dej = file10.read()
+        await message.answer(dej)
+    with open("dejcode.txt", "r", encoding="utf-8") as file10:
         dejt = file10.read()
-        await message.answer(dejt)
+        await message.answer(dejt, parse_mode="HTML")
 
 @router.message(Command("Math"))
 async def send_bins11(message: Message):

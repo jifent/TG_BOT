@@ -1,0 +1,38 @@
+<pre><code class="language-cpp">})
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
+#include &lt;vector&gt;
+
+int main() {
+    const int INF = 1000000000;
+    // Weighted directed graph: adj[u] = {(neighbor, weight), ...}
+    std::vector&lt;std::vector&lt;std::pair&lt;int, int&gt;&gt;&gt; adj = {
+        {{1, 4}, {2, 1}},  // 0
+        {{3, 1}},          // 1
+        {{1, 2}, {3, 5}},  // 2
+        {{4, 3}},          // 3
+        {},                // 4
+    };
+    int n = static_cast&lt;int&gt;(adj.size());
+    std::vector&lt;int&gt; dist(n, INF);
+    dist[0] = 0;
+    using State = std::pair&lt;int, int&gt;;  // (distance, node)
+    std::priority_queue&lt;State, std::vector&lt;State&gt;, std::greater&lt;State&gt;&gt; pq;
+    pq.push({0, 0});
+    while (!pq.empty()) {
+        auto [d, u] = pq.top();
+        pq.pop();
+        if (d &gt; dist[u]) continue;  // stale queue entry
+        for (auto [v, w] : adj[u]) {
+            if (d + w &lt; dist[v]) {
+                dist[v] = d + w;
+                pq.push({dist[v], v});
+            }
+        }
+    }
+    for (int v = 0; v &lt; n; ++v) {
+        std::cout &lt;&lt; "Distance 0 -&gt; " &lt;&lt; v &lt;&lt; ": " &lt;&lt; dist[v] &lt;&lt; "\n";
+    }
+    return 0;
+}
+</code></pre>

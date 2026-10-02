@@ -1,0 +1,38 @@
+<pre><code class="language-cpp">})
+#include &lt;iostream&gt;
+#include &lt;utility&gt;
+#include &lt;vector&gt;
+
+void printVec(const std::vector&lt;int&gt;&amp; a) {
+    for (int x : a) std::cout &lt;&lt; x &lt;&lt; " ";
+    std::cout &lt;&lt; "\n";
+}
+
+// Lomuto partition: place the pivot in its final position
+int partition(std::vector&lt;int&gt;&amp; a, int lo, int hi) {
+    int pivot = a[hi];
+    int i = lo;
+    for (int j = lo; j &lt; hi; ++j) {
+        if (a[j] &lt; pivot) std::swap(a[i++], a[j]);
+    }
+    std::swap(a[i], a[hi]);
+    return i;
+}
+
+void quickSort(std::vector&lt;int&gt;&amp; a, int lo, int hi) {
+    if (lo &gt;= hi) return;
+    int p = partition(a, lo, hi);
+    quickSort(a, lo, p - 1);
+    quickSort(a, p + 1, hi);
+}
+
+int main() {
+    std::vector&lt;int&gt; data = {10, 7, 8, 9, 1, 5};
+    std::cout &lt;&lt; "Before: ";
+    printVec(data);
+    quickSort(data, 0, static_cast&lt;int&gt;(data.size()) - 1);
+    std::cout &lt;&lt; "After:  ";
+    printVec(data);
+    return 0;
+}
+</code></pre>
